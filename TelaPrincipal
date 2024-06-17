@@ -1,0 +1,96 @@
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class TelaPrincipal extends JFrame {
+    // Imagens Adicionadas
+    ImageIcon img1 = new ImageIcon(getClass().getResource("/img/cruzeiro.jpg"));
+    JLabel cruzeiroImg = new JLabel(img1);
+    ImageIcon img2 = new ImageIcon(getClass().getResource("/img/flamengo.jpg"));
+    JLabel flamengoImg = new JLabel(img2);
+
+
+    // Texto
+    JLabel lblTitulo = new JLabel("Vitrine de Produtos");
+
+    // Botões
+    JButton btnProduto1 = new JButton("Camisa Flamengo");
+    JButton btnProduto2 = new JButton("Camisa Cruzeiro");
+    JButton btnCarrinho = new JButton("Ir para o Carrinho");
+
+    private Carrinho carrinho = new Carrinho();
+
+    public TelaPrincipal() {
+        setTitle("Vitrine de Produtos");
+        setSize(600, 400);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+        setLayout(null);
+
+        // titulo
+        lblTitulo.setBounds(10, 8, 200, 30);
+        add(lblTitulo);
+
+        // imagem
+        add(cruzeiroImg);
+        add(flamengoImg);
+        cruzeiroImg.setBounds(20, 35, 200, 200);
+        flamengoImg.setBounds(320, 35, 200, 200);
+
+
+        // btn
+        btnProduto1.setBounds(320, 240, 170, 30);
+        btnProduto2.setBounds(20, 240, 170, 30);
+        btnCarrinho.setBounds(200, 295, 170, 30);
+
+        btnCarrinho.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                TelaCarrinho telaCarrinho = new TelaCarrinho(carrinho);
+                telaCarrinho.setVisible(true);
+                dispose();
+            }
+        });
+
+        add(btnProduto1);
+        add(btnProduto2);
+        add(btnCarrinho);
+        acionarCruzeiro();
+        acionarFlamengo();
+    }
+
+    public void acionarCruzeiro(){
+        btnProduto2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String quantidadeStr = JOptionPane.showInputDialog(null, "Valor Camisa: R$ 150,00" +
+                        "\nQuantas Unidades?");
+                try {
+                    int quantidade = Integer.parseInt(quantidadeStr);
+                    carrinho.setQuantidadeCruzeiro(quantidade);
+                    JOptionPane.showMessageDialog(null, "Você adicionou " + quantidade + " camisas do Cruzeiro ao carrinho.");
+                } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(null, "Por favor, insira um número válido.");
+                }
+            }
+        });
+    }
+
+    public void acionarFlamengo(){
+        btnProduto1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String quantidadeStr = JOptionPane.showInputDialog(null, "Valor Camisa: R$ 120,00" +
+                        "\nQuantas Unidades?");
+                try {
+                    int quantidade = Integer.parseInt(quantidadeStr);
+                    carrinho.setQuantidadeFlamengo(quantidade);
+                    JOptionPane.showMessageDialog(null, "Você adicionou " + quantidade + " camisas do Flamengo ao carrinho.");
+                } catch (NumberFormatException ex) {
+                    JOptionPane.showMessageDialog(null, "Por favor, insira um número válido.");
+                }
+            }
+        });
+    }
+
+}
