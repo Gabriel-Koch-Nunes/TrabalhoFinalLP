@@ -1,0 +1,40 @@
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class TelaLogin extends JFrame {
+    public TelaLogin() {
+        setTitle("Loja Camisas Brasileira");
+        setSize(400, 300);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+        setLayout(null);
+
+        JLabel lblUsuario = new JLabel("Usuário:");
+        lblUsuario.setBounds(50, 50, 80, 25);
+        JTextField txtUsuario = new JTextField(20);
+        txtUsuario.setBounds(150, 50, 150, 25);
+
+        JLabel lblSenha = new JLabel("Senha:");
+        lblSenha.setBounds(50, 100, 80, 25);
+        JPasswordField txtSenha = new JPasswordField(20);
+        txtSenha.setBounds(150, 100, 150, 25);
+
+        JButton btnLogin = new JButton("Login");
+        btnLogin.setBounds(150, 150, 100, 30);
+        btnLogin.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                TelaPrincipal telaPrincipal = new TelaPrincipal();
+                telaPrincipal.setVisible(true);
+                dispose();
+            }
+        });
+
+        add(lblUsuario);
+        add(txtUsuario);
+        add(lblSenha);
+        add(txtSenha);
+        add(btnLogin);
+    }
+}
