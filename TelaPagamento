@@ -1,0 +1,38 @@
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class TelaPagamento extends JFrame {
+    public TelaPagamento() {
+        setTitle("Pagamento");
+        setSize(600, 400);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+        setLayout(null);
+
+        JLabel lblTitulo = new JLabel("Pagamento");
+        lblTitulo.setBounds(200, 20, 200, 30);
+        add(lblTitulo);
+
+        JLabel lblFormaPagamento = new JLabel("Forma de Pagamento:");
+        lblFormaPagamento.setBounds(150, 100, 200, 30);
+        JComboBox<String> cmbFormaPagamento = new JComboBox<>(new String[]{"Cartão de Crédito", "Cartão de Débito", "Dinheiro"});
+        cmbFormaPagamento.setBounds(300, 100, 150, 30);
+
+        JButton btnFinalizar = new JButton("Finalizar Compra");
+        btnFinalizar.setBounds(200, 200, 200, 30);
+        btnFinalizar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(null, "Compra finalizada com sucesso!");
+                TelaPrincipal telaPrincipal = new TelaPrincipal();
+                telaPrincipal.setVisible(true);
+                dispose();
+            }
+        });
+
+        add(lblFormaPagamento);
+        add(cmbFormaPagamento);
+        add(btnFinalizar);
+    }
+}
