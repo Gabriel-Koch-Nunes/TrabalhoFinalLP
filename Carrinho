@@ -1,0 +1,42 @@
+public class Carrinho {
+    private int quantidadeFlamengo;
+    private int quantidadeCruzeiro;
+    private final double precoFlamengo = 120.00;
+    private final double precoCruzeiro = 150.00;
+
+    public int getQuantidadeFlamengo() {
+        return quantidadeFlamengo;
+    }
+
+    public void setQuantidadeFlamengo(int quantidadeFlamengo) {
+        this.quantidadeFlamengo = quantidadeFlamengo;
+    }
+
+    public int getQuantidadeCruzeiro() {
+        return quantidadeCruzeiro;
+    }
+
+    public void setQuantidadeCruzeiro(int quantidadeCruzeiro) {
+        this.quantidadeCruzeiro = quantidadeCruzeiro;
+    }
+
+    public double getPrecoFlamengo() {
+        return precoFlamengo;
+    }
+
+    public double getPrecoCruzeiro() {
+        return precoCruzeiro;
+    }
+
+    public double getTotalFlamengo() {
+        return quantidadeFlamengo * precoFlamengo;
+    }
+
+    public double getTotalCruzeiro() {
+        return quantidadeCruzeiro * precoCruzeiro;
+    }
+
+    public double getTotal() {
+        return getTotalFlamengo() + getTotalCruzeiro();
+    }
+}
