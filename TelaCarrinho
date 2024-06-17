@@ -1,0 +1,52 @@
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class TelaCarrinho extends JFrame {
+    private Carrinho carrinho;
+
+    // Campos
+    JLabel lblTitulo = new JLabel("Carrinho de Compras");
+    JLabel lblFlamengo;
+    JLabel lblCruzeiro;
+    JLabel lblTotal;
+    JButton btnPagamento = new JButton("Ir para Pagamento"); // btn
+
+    public TelaCarrinho(Carrinho carrinho) {
+        this.carrinho = carrinho;
+
+        lblFlamengo = new JLabel("Camisas do Flamengo: " + carrinho.getQuantidadeFlamengo() + " - Total: R$ " + carrinho.getTotalFlamengo());
+        lblCruzeiro = new JLabel("Camisas do Cruzeiro: " + carrinho.getQuantidadeCruzeiro() + " - Total: R$ " + carrinho.getTotalCruzeiro());
+        lblTotal = new JLabel("Valor Total: R$ " + carrinho.getTotal());
+
+        setTitle("Carrinho de Compras");
+        setSize(600, 400);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+        setLayout(null);
+
+        // Título
+        lblTitulo.setBounds(200, 20, 200, 30);
+        add(lblTitulo);
+
+        // Quantidade e total:
+        lblFlamengo.setBounds(200, 100, 300, 30);
+        lblCruzeiro.setBounds(200, 150, 300, 30);
+        lblTotal.setBounds(200, 200, 300, 30);
+
+        btnPagamento.setBounds(200, 250, 200, 30);
+        btnPagamento.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                TelaPagamento telaPagamento = new TelaPagamento();
+                telaPagamento.setVisible(true);
+                dispose();
+            }
+        });
+
+        add(lblFlamengo);
+        add(lblCruzeiro);
+        add(lblTotal);
+        add(btnPagamento);
+    }
+}
