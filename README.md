@@ -17,3 +17,5 @@ Construir 4 telas, sendo uma para Tela Principal, Tela de Login, Tela de carrinh
 - Estrutura feita no software Draw.io
 ![DiagramaCamisas](https://github.com/Gabriel-Koch-Nunes/TrabalhoFinalLP/assets/160144370/41337900-21b6-482d-b4a9-6df20de0999d)
 
+## Banco de Dados SQliteStudio
+![Captura de tela 2024-06-18 165134](https://github.com/Gabriel-Koch-Nunes/TrabalhoFinalLP/assets/160144370/0b945651-a20c-4170-aa65-8373d491c669)
