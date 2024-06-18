@@ -12,4 +12,3 @@ Construir 4 telas, sendo uma para Tela Principal, Tela de Login, Tela de carrinh
 ## Estrutura do Banco de Dados
 ![DiagramaCamisas](https://github.com/Gabriel-Koch-Nunes/TrabalhoFinalLP/assets/160144370/41337900-21b6-482d-b4a9-6df20de0999d)
 - Estrutura feita no software Draw.io
-  
